@@ -1,0 +1,15 @@
+<Alloy>
+	<View id="index">
+		<ScrollView id="imageViewContainer" platform="ios">
+		</ScrollView>
+		<View id="imageViewContainer" platform="android">
+		</View>
+		
+		<View id="gradientImage" />
+		<Label id="title" />
+		<Label id="description" />
+		<View id="scrollBar" platform="ios">
+			<View id="scrollBarInset" />
+		</View>
+	</View>
+</Alloy>

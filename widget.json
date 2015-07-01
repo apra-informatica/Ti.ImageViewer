@@ -1,0 +1,12 @@
+{
+	"id": "it.apra.tiimageviewer",
+	"name": "Ti.ImageViewer",
+	"description" : "Image viewer widget for Appcelerator Titanium",
+	"author": "Mauro Piccotti",
+	"version": "1.0.0",
+	"copyright":"Copyright (c) 2015",
+	"min-alloy-version": "1.0",
+	"min-titanium-version":"4.0",
+	"tags":"fullscreen,image,view,viewer",
+	"platforms":"android,ios"
+}

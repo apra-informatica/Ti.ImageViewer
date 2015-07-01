@@ -1,0 +1,70 @@
+"#index":{
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL
+},
+"#imageViewContainer":{
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL
+},
+"#imageViewContainer[platform=ios]":{
+	disableBounce: true
+},
+"#title":{
+	touchEnabled: false,
+	bottom: 40,
+	left: 20,
+	right: 20,
+	height: 34,
+	color: '#fff',
+	shadow: {
+		shadowColor: '#000',
+		shadowOffset: { x: 0, y: 1 },
+		shadowRadius: 4
+	},
+	font: {
+		fontWeight: 'bold',
+		fontSize: 24,
+	}
+},
+"#description":{
+	touchEnabled: false,
+	bottom: 20,
+	left: 20,
+	right: 20,
+	height: 18,
+	color: '#fff',
+	shadow: {
+		shadowColor: '#000',
+		shadowOffset: { x: 0, y: 1 },
+		shadowRadius: 2
+	},
+	font: {
+		fontSize: 14,
+	}
+},
+"#scrollBar":{
+	touchEnabled: false,
+	bottom: 90,
+	height: 1,
+	left: 20,
+	right: 20,
+	backgroundColor: '#4fff'
+},
+"#scrollBarInset":{
+	touchEnabled: false,
+	width: 60,
+	left: 0,
+	top: 0,
+	backgroundColor: '#fff'
+},
+"#gradientImage":{
+	touchEnabled: false,
+	bottom: 0,
+	height: 260,
+	backgroundGradient: {
+		type: 'linear',
+		startPoint: { x: 0, y: 0 },
+		endPoint: { x: 0, y: '100%' },
+		colors: [ { color: '#0000', offset: 0.0}, { color: '#000', offset: 1 } ],
+	}
+}
