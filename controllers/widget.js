@@ -6,7 +6,7 @@ var args = arguments[0] || {},
 	lowerGradientHided = args.lowerGradientHided || false,
 	backgroundColor = args.backgroundColor || 'black';
 
-var imageView, imageLoad, orientationChange, removeEventListeners, showLowerInfo;
+var lastValidOrientation, imageView, imageLoad, orientationChange, removeEventListeners, showLowerInfo;
 
 lastValidOrientation = null;
 
