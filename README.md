@@ -5,6 +5,8 @@ With this image viewer it's possible to show a single - zoomable, scrollable and
 
 It uses module org.iotashan.TiTouchImageView (on Android), and installation of this module is necessary if you mean to use the widget on Android.
 
+![image](docs/screenshot1.png?raw=true)
+
 ## Installation
 
 Add in your *config.json*, under `dependencies`:
