@@ -26,6 +26,12 @@ widget = Alloy.createWidget('it.apra.tiimageviewer', {
 });
 ```
 
+## Usage with Alloy
+```xml
+		<Widget src="it.apra.tiimageviewer" id="myiview" image="http://lorempixel.com/800/600/nature/" lowerGradientHided="true" lowerInfoHided="true"/>
+```
+Instead of http://lorempixel.com/800/600/nature/ you could also use a local image located in your app/assets/images/ folder like this: "/images/sample.png"
+
 **Args**
 * **image**: image filepath
 * **title**: optional image title (showed in lower panel)
