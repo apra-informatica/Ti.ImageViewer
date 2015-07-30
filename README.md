@@ -19,7 +19,7 @@ Add in your *config.json*, under `dependencies`:
 
 ## Usage
 ```javascript
-widget = Widget.createWidget('it.apra.tiimageviewer', {
+widget = Alloy.createWidget('it.apra.tiimageviewer', {
 	'image' : filepath,
 	'title' : filename,
 	'subtitle' : des
