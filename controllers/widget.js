@@ -2,8 +2,8 @@ var args = arguments[0] || {},
 	image = args.image,
 	title = args.title || "",
 	subtitle = args.subtitle || "",
-	lowerInfoHided = args.lowerInfoHided || false,
-	lowerGradientHided = args.lowerGradientHided || false,
+	lowerInfoHidden = args.lowerInfoHidden || args.lowerInfoHided || false,
+	lowerGradientHidden = args.lowerGradientHidden || args.lowerGradientHided || false,
 	backgroundColor = args.backgroundColor || 'black';
 
 var lastValidOrientation, imageView, imageLoad, orientationChange, removeEventListeners, showLowerInfo;
@@ -11,7 +11,7 @@ var lastValidOrientation, imageView, imageLoad, orientationChange, removeEventLi
 lastValidOrientation = null;
 
 showLowerInfo = function(){
-	if (!lowerInfoHided){
+	if (!lowerInfoHidden){
 		$.title.visible = true;
 		$.description.visible = true;
 	}
@@ -168,13 +168,13 @@ $.title.text = title;
 $.description.text = subtitle;
 $.index.backgroundColor = backgroundColor;
 
-if (lowerInfoHided){
+if (lowerInfoHidden){
 	hideLowerInfo();
 } else {
 	showLowerInfo();
 }
 
-$.gradientImage.visible = !lowerGradientHided;
+$.gradientImage.visible = !lowerGradientHidden;
 
 exports.reloadImage = imageLoad;
 exports.removeEventListeners = removeEventListeners;
