@@ -3,7 +3,7 @@
 	"name": "Ti.ImageViewer",
 	"description" : "Image viewer widget for Appcelerator Titanium",
 	"author": "Mauro Piccotti",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"copyright":"Copyright (c) 2015",
 	"min-alloy-version": "1.0",
 	"min-titanium-version":"4.0",

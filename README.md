@@ -1,7 +1,7 @@
 # Ti.ImageViewer
 Image viewer widget for Appcelerator Titanium
 
-With this image viewer it's possible to show a single - zoomable, scrollable and pinchable - image on iOS and Android.
+With this image viewer it's possible to show a single - zoomable, scrollable and pinchable - local image on iOS and Android (on iOS also remote images).
 
 It uses module org.iotashan.TiTouchImageView (on Android), and installation of this module is necessary if you mean to use the widget on Android.
 
@@ -28,9 +28,8 @@ widget = Alloy.createWidget('it.apra.tiimageviewer', {
 
 ## Usage with Alloy
 ```xml
-		<Widget src="it.apra.tiimageviewer" id="myiview" image="http://lorempixel.com/800/600/nature/" lowerGradientHidden="true" lowerInfoHidden="true"/>
+		<Widget src="it.apra.tiimageviewer" id="myiview" image="..." lowerGradientHidden="true" lowerInfoHidden="true"/>
 ```
-Instead of http://lorempixel.com/800/600/nature/ you could also use a local image located in your app/assets/images/ folder like this: "/images/sample.png"
 
 **Args**
 * **image**: image filepath
