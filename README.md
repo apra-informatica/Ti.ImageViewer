@@ -28,7 +28,7 @@ widget = Alloy.createWidget('it.apra.tiimageviewer', {
 
 ## Usage with Alloy
 ```xml
-		<Widget src="it.apra.tiimageviewer" id="myiview" image="http://lorempixel.com/800/600/nature/" lowerGradientHided="true" lowerInfoHided="true"/>
+		<Widget src="it.apra.tiimageviewer" id="myiview" image="http://lorempixel.com/800/600/nature/" lowerGradientHidden="true" lowerInfoHidden="true"/>
 ```
 Instead of http://lorempixel.com/800/600/nature/ you could also use a local image located in your app/assets/images/ folder like this: "/images/sample.png"
 
@@ -36,8 +36,8 @@ Instead of http://lorempixel.com/800/600/nature/ you could also use a local imag
 * **image**: image filepath
 * **title**: optional image title (showed in lower panel)
 * **subtitle**: optional image subtitle (showed in lower panel)
-* **lowerInfoHided**: if true hides lower info panel
-* **lowerGradientHided**: if true hides lower info panel gradient
+* **lowerInfoHidden**: if true hides lower info panel
+* **lowerGradientHidden**: if true hides lower info panel gradient
 * **backgroundColor**: backgroundColor (default is 'black')
 
 **Functions**
