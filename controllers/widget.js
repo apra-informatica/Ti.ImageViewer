@@ -1,6 +1,6 @@
-var args = arguments[0] || {},
-	image = args.image,
-	title = args.title || "",
+var args = arguments[0] || {};
+$.image = args.image;
+var title = args.title || "",
 	subtitle = args.subtitle || "",
 	lowerInfoHidden = args.lowerInfoHidden || args.lowerInfoHided || false,
 	lowerGradientHidden = args.lowerGradientHidden || args.lowerGradientHided || false,
@@ -24,31 +24,34 @@ hideLowerInfo = function(){
 if (OS_IOS) {
 	(function(){
 		var getMaxOffset, IMGS, OUTS, SS, LAYOUT, MINZOOMSCALE;
-		
+
 		imageView = Ti.UI.createImageView({
-			'image' : image,
+			'image' : $.image,
 			'height': Ti.UI.SIZE,
 			'width': Ti.UI.SIZE,
 			'touchEnabled': false
 		});
 		$.imageViewContainer.add(imageView);
-		
+
 		getMaxOffset = function() {
 			return (IMGS.width*$.imageViewContainer.zoomScale)-OUTS.width;
 		};
-		
+
 		imageLoad = function(){
 			Ti.API.debug('Loading imagetView ' + title);
-			
+
 			var size, rect, OR, IR, zoomScaleToFit;
-			
+
+			if (imageView.image != $.image) {
+				imageView.image = $.image;
+			}
 			size = imageView.size;
 			rect = $.index.size;
 			IMGS = { width: size.width, height: size.height };
 			OUTS = { width: rect.width, height: rect.height };
 			OR = OUTS.width/OUTS.height;
 			IR = IMGS.width/IMGS.height;
-	
+
 			// Recalculate if the min-height is not sufficient
 			if (IMGS.height<OUTS.height) {
 				imageView.height = OUTS.height;
@@ -57,7 +60,7 @@ if (OS_IOS) {
 					height: OUTS.height
 				};
 			}
-			
+
 			// Scroll horizontal or vertically ?
 			MINZOOMSCALE = 1;
 			if (IR>OR) {
@@ -83,7 +86,7 @@ if (OS_IOS) {
 				});
 				$.scrollBarInset.height = 60;
 			}
-	
+
 			// scalesToFit
 			if (IMGS.width > OUTS.width || IMGS.height > OUTS.height) {
 				zoomScaleToFit = Math.min(OUTS.height / IMGS.height, OUTS.width / IMGS.width);
@@ -92,12 +95,12 @@ if (OS_IOS) {
 				}
 			}
 			MINZOOMSCALE *= 0.95;
-			
+
 			$.imageViewContainer.minZoomScale = MINZOOMSCALE;
 			$.imageViewContainer.zoomScale = MINZOOMSCALE;
 			$.imageViewContainer.maxZoomScale = 5;
 		};
-		
+
 		$.imageViewContainer.addEventListener('scroll', function(){
 			if (LAYOUT==='H') {
 				$.scrollBarInset.animate({
@@ -109,7 +112,7 @@ if (OS_IOS) {
 				});
 			}
 		});
-		
+
 		imageView.addEventListener('load', imageLoad);
 		$.index.addEventListener('singletap', function(e) {
 			imageLoad();
@@ -118,13 +121,19 @@ if (OS_IOS) {
 } else if (OS_ANDROID){
 	(function(){
 		imageView = require('org.iotashan.TiTouchImageView').createView({
-			'image' : image,
+			'image' : $.image,
 			'width': Ti.UI.FILL,
 			'height' : Ti.UI.FILL
 		});
 		$.imageViewContainer.add(imageView);
-		
+
 		imageLoad = function(){
+			Ti.API.debug('Loading imagetView ' + title);
+
+			if (imageView.image != $.image) {
+				imageView.image = $.image;
+			}
+
 			imageView.resetZoom();
 		};
 	}());
@@ -132,7 +141,7 @@ if (OS_IOS) {
 
 (function(){
 	var lastValidOrientation;
-	
+
 	orientationChange = function(e){
 		if (e){
 			Ti.API.debug('Orientation: ' + e.orientation);
@@ -150,7 +159,7 @@ if (OS_IOS) {
 					return;
 			}
 		}
-		
+
 		imageLoad();
 	};
 	Ti.Gesture.addEventListener('orientationchange', orientationChange);
@@ -158,7 +167,7 @@ if (OS_IOS) {
 
 removeEventListeners = function(){
 	Ti.API.debug('tiImageViewer: removingEventListeners ' + title);
-	
+
 	if (orientationChange) { Ti.Gesture.removeEventListener('orientationchange', orientationChange); }
 	if (imageView && imageLoad) { imageView.removeEventListener('load', imageLoad); }
 };
